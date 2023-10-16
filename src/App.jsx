@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import {  FaPlus, FaUndoAlt, } from "react-icons/fa";
+import RangeNumberInput from './components/RangeNumberInput';
 
 
 
@@ -49,11 +50,8 @@ function App() {
               <div>
                 <h2>Size</h2>
                 
-                  <div className='flex justify-between'>
-                  <input className='w-72' type="range" id="vol" name="vol" min="0" max="200"/>
-
-                  <input className='p-1 rounded-sm ' type="number" min="1" max="200" step="1" placeholder="" data-setting="size"></input>
-                  </div>
+                <RangeNumberInput min={0} max={200} ></RangeNumberInput>
+                  
               </div>
               {/* Size End */}
 
@@ -146,12 +144,7 @@ function App() {
 
            <div className='my-2'>
                 <h2>Line-Height</h2>
-                
-                  <div className='flex justify-between'>
-                  <input className='w-72' type="range" id="vol" name="vol" min="0" max="200"/>
-
-                  <input className='p-1 rounded-sm ' type="number" min="1" max="200" step="1" placeholder="" data-setting="line"></input>
-                  </div>
+                 <RangeNumberInput min={1} max={100} ></RangeNumberInput>
               </div>
               
               {/* Line-Height End */}
@@ -161,12 +154,7 @@ function App() {
         {/* Letter Spacing part */}
            <div className='my-2'>
                 <h2>Letter Spacing</h2>
-                
-                  <div className='flex justify-between'>
-                  <input className='w-72' type="range" id="vol" name="vol" min="0" max="200"/>
-
-                  <input className='p-1 rounded-sm ' type="number" min="1" max="200" step="1" placeholder="" data-setting="line"></input>
-                  </div>
+                <RangeNumberInput min={-5} max={10} steps={1} ></RangeNumberInput>
               </div>
               {/* Letter Spacing End */}
 
@@ -174,12 +162,7 @@ function App() {
         {/* Word Spacing part */}
            <div className='my-2'>
                 <h2>Word Spacing</h2>
-                
-                  <div className='flex justify-between'>
-                  <input className='w-72' type="range" id="vol" name="vol" min="0" max="200"/>
-
-                  <input className='p-1 rounded-sm ' type="number" min="1" max="200" step="1" placeholder="" data-setting="line"></input>
-                  </div>
+                <RangeNumberInput min={-5} max={10} steps={1} ></RangeNumberInput>
               </div>
               {/* Word Spacing End */}
 
