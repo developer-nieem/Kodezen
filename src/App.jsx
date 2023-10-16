@@ -44,6 +44,18 @@ function App() {
             </div>
             {/* Font family part end*/}
 
+              {/* Size part */}
+
+              <div>
+                <h2>Size</h2>
+                
+                  <div className='flex justify-between'>
+                  <input className='w-72' type="range" id="vol" name="vol" min="0" max="200"/>
+
+                  <input className='p-1 rounded-sm ' type="number" min="1" max="200" step="1" placeholder="" data-setting="size"></input>
+                  </div>
+              </div>
+              {/* Size End */}
 
 
       </div>
