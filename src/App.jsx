@@ -75,8 +75,8 @@ function App() {
               </div>
               <div>
                 
-                <select className='p-2 rounded-sm' name="" id="">
-                  <option value >Default</option>
+                <select className='p-2 rounded-sm' value={fontWeight} onChange={(e)=> setFontWeight(e.target.value)}>
+                  <option value="Default" >Default</option>
                   <option value="100">100</option>
                   <option value="200">200</option>
                   <option value="300">300</option>
@@ -100,12 +100,12 @@ function App() {
               </div>
               <div>
                 
-                <select className='p-2 rounded-sm' name="" id="">
-                  <option value >Default</option>
+                <select className='p-2 rounded-sm' value={textTransform} onChange={(e) => setTextTransform(e.target.value)}>
+                  <option value="Default">Default</option>
                   <option value="uppercase">UpperCase</option>
                   <option value="lowercase">LowerCase</option>
                   <option value="capitalize">Capitalize</option>
-                  <option value="normal">Normal</option>
+                  <option value="none">Normal</option>
                      
                 </select>
               </div>
@@ -120,8 +120,8 @@ function App() {
                 <span>Style</span>
               </div>
               <div>
-                <select className='p-2 rounded-sm' name="" id="">
-                  <option value >Default</option>
+                <select className='p-2 rounded-sm' value={fontStyle} onChange={(e)=> setFontStyle(e.target.value)}>
+                  <option value="Default" >Default</option>
                   <option value="normal">Normal</option>
                   <option value="italic">Italic</option>
                   <option value="oblique">Oblique</option>
@@ -139,12 +139,12 @@ function App() {
                 <span>Decoration</span>
               </div>
               <div>
-                <select className='p-2 rounded-sm' name="" id="">
-                  <option value >Default</option>
+                <select className='p-2 rounded-sm' value={textDecoration}   onChange={(e) => setTextDecoration(e.target.value)}>
+                  <option value="Default" >Default</option>
                   <option value="underline">Underline</option>
                   <option value="overline">Overline</option>
-                  <option value="through">Line Through</option>
-                  <option value="normal">normal</option>
+                  <option value="line-through">Line Through</option>
+                  <option value="none">normal</option>
                 </select>
               </div>
             </div>
@@ -156,7 +156,7 @@ function App() {
 
            <div className='my-2'>
                 <h2>Line-Height</h2>
-                 <RangeNumberInput min={1} max={100} ></RangeNumberInput>
+                 <RangeNumberInput min={1} max={100} onChange={(newValue) => setLineHeight(newValue)}></RangeNumberInput>
               </div>
               
               {/* Line-Height End */}
@@ -166,7 +166,7 @@ function App() {
         {/* Letter Spacing part */}
            <div className='my-2'>
                 <h2>Letter Spacing</h2>
-                <RangeNumberInput min={-5} max={10} steps={1} ></RangeNumberInput>
+                <RangeNumberInput min={-5} max={10} step={0.1} onChange={(newValue) => setLetterSpacing(newValue)}></RangeNumberInput>
               </div>
               {/* Letter Spacing End */}
 
@@ -174,7 +174,7 @@ function App() {
         {/* Word Spacing part */}
            <div className='my-2'>
                 <h2>Word Spacing</h2>
-                <RangeNumberInput min={-5} max={10} steps={1} ></RangeNumberInput>
+                <RangeNumberInput min={-5} max={10} step={0.1} onChange={(newValue) => setWordSpacing(newValue)}></RangeNumberInput>
               </div>
               {/* Word Spacing End */}
 
@@ -191,13 +191,21 @@ function App() {
              
              style={{
               fontFamily: fontFamily !== 'Default' ? fontFamily: 'inherit',
-              fontSize:`${fontSize}px`
-
+              fontSize:`${fontSize}px`,
+              fontWeight: fontWeight,
+              textTransform: textTransform !== 'Default' ? textTransform:'inherit',
+              fontStyle : fontStyle !== "Default" ? fontStyle: 'inherit',
+              textDecoration : textDecoration !== "Default" ? textDecoration: 'inherit',
+              lineHeight: `${lineHeight}`,
+              letterSpacing: `${letterSpacing}px`,
+              wordSpacing: `${wordSpacing}px`
 
              }}
              
              
              ></textarea>
+
+             <input type="number" step='0.1' />
           </div>
 
       </div>

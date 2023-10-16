@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-const RangeNumberInput = ({min, max, steps, onChange}) => {
+const RangeNumberInput = ({min, max, step,  onChange}) => {
 
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState();
 
     const handleRange= (e) => {
-        const newValue =  parseInt(e.target.value)
+        const newValue =  e.target.value
         setValue(newValue)
         onChange(newValue)
     }
     const handleNumber= (e) => {
-        const newValue =  parseInt(e.target.value)
+        const newValue =  e.target.value
         setValue(newValue)
         onChange(newValue)
     }
@@ -18,9 +18,9 @@ const RangeNumberInput = ({min, max, steps, onChange}) => {
 
     return (
          <div className='flex justify-between'>
-                  <input className='w-72' type="range" id="vol" name="vol" min={min} max={max} value={value} onChange={handleRange}/>
+                  <input className='w-72' type="range" id="vol" name="vol" min={min} max={max} step={step} value={value} onChange={handleRange}/>
 
-                  <input className='p-1 rounded-sm ' type="number" min={min} max={max} value={value} step={steps} placeholder="" data-setting="line" onChange={handleNumber}></input>
+                  <input className='p-1 rounded-sm ' type="number" min={min} max={max}  step={step}  value={value} onChange={handleNumber}></input>
         </div>
     );
 };
