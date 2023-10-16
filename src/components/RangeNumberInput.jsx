@@ -1,16 +1,18 @@
 import { useState } from "react";
 
-const RangeNumberInput = ({min, max, steps}) => {
+const RangeNumberInput = ({min, max, steps, onChange}) => {
 
     const [value, setValue] = useState('');
 
     const handleRange= (e) => {
         const newValue =  parseInt(e.target.value)
         setValue(newValue)
+        onChange(newValue)
     }
     const handleNumber= (e) => {
         const newValue =  parseInt(e.target.value)
         setValue(newValue)
+        onChange(newValue)
     }
 
 

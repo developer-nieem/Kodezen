@@ -7,7 +7,19 @@ import RangeNumberInput from './components/RangeNumberInput';
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [text, setText] = useState('Customize me');
+  const [fontFamily, setFontFamily] = useState('Default');
+  const [fontSize, setFontSize] = useState(16); 
+  const [fontWeight, setFontWeight] = useState('Default');
+  const [textTransform, setTextTransform] = useState('Default');
+  const [fontStyle, setFontStyle] = useState('Default');
+  const [textDecoration, setTextDecoration] = useState('Default');
+  const [lineHeight, setLineHeight] = useState(1); 
+  const [letterSpacing, setLetterSpacing] = useState(0); 
+  const [wordSpacing, setWordSpacing] = useState(0);
+
+ console.log(fontSize);
 
   return (
     <>
@@ -35,10 +47,10 @@ function App() {
               </div>
               <div>
                 
-                <select className='p-2 rounded-sm' name="" id="">
+                <select className='p-2 rounded-sm' value={fontFamily}  onChange={(e)=> setFontFamily(e.target.value)}>
                   <option value >Default</option>
-                  <option value="roboto">Roboto</option>
-                  <option value="arial">Arial</option>
+                  <option value="Roboto">Roboto</option>
+                  <option value="Arial">Arial</option>
                   
                 </select>
               </div>
@@ -50,7 +62,7 @@ function App() {
               <div>
                 <h2>Size</h2>
                 
-                <RangeNumberInput min={0} max={200} ></RangeNumberInput>
+                <RangeNumberInput min={0} max={200} onChange={(newValue)=>setFontSize(newValue)} ></RangeNumberInput>
                   
               </div>
               {/* Size End */}
@@ -171,7 +183,23 @@ function App() {
 
       {/* Output part */}
       <div className='md:col-6'>
-d
+
+          <div>
+             <h2 className='text-xl font-semibold my-5'>Customize Your text:-</h2>
+
+             <textarea className='w-full h-44 bg-slate-100 border border-1 shadow-md outline-none p-3'  cols="30" rows="10" value={text} onChange={(e)=> setText(e.target.value)}
+             
+             style={{
+              fontFamily: fontFamily !== 'Default' ? fontFamily: 'inherit',
+              fontSize:`${fontSize}px`
+
+
+             }}
+             
+             
+             ></textarea>
+          </div>
+
       </div>
      </div>
     </>
