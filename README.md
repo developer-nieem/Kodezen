@@ -7,5 +7,5 @@
 # How to use 
 -please write text in textarea filed then customize left sidebar editor 
 
-### Live link : 
+### Live link : https://text-customize.netlify.app/
 
